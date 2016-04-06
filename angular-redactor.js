@@ -24,6 +24,13 @@
 
                     var updateModel = function updateModel(value) {
                             // $timeout to avoid $digest collision
+                            // $timeout to avoid $digest collision
+                            if ( value === '<p><br></p>' || value.trim() === '' ) {
+                                value = '';
+                                element.closest( '.redactor-box' ).css( 'border' , '1px solid red' );
+                            } else {
+                                element.closest( '.redactor-box' ).css( 'border' , 'none' );
+                            }
                             $timeout(function() {
                                 scope.$apply(function() {
                                     ngModel.$setViewValue(value);
