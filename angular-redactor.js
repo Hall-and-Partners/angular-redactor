@@ -24,8 +24,11 @@
 
                     var updateModel = function updateModel(value) {
                             // $timeout to avoid $digest collision
-                            // $timeout to avoid $digest collision
-                            if ( value === '<p><br></p>' || value.trim() === '' ) {
+
+                            // for firefox
+                           var tempvalue = value.replace( /\s/g, '' );
+
+                            if ( tempvalue === '<p><br></p>' || value.trim() === '' ) {
                                 value = '';
                                 element.closest( '.redactor-box' ).css( 'border' , '1px solid red' );
                             } else {
