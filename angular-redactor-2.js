@@ -24,6 +24,13 @@
 
                     var updateModel = function updateModel(value) {
                             // $timeout to avoid $digest collision
+
+                            // handle model validation since this isnt handled properly
+                            var tempvalue = value.replace( /<[^>]+>/gm, '' ).replace( /&nbsp;/g, '').replace( /\s/g, '' );
+
+                            if ( tempvalue.trim() === '' ) {
+                                value = '';
+                            }
                             $timeout(function() {
                                 scope.$apply(function() {
                                     ngModel.$setViewValue(value);
