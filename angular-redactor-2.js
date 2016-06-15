@@ -30,9 +30,6 @@
 
                             if ( tempvalue.trim() === '' ) {
                                 value = '';
-                                element.closest( '.redactor-box' ).css( 'border' , '1px solid red' );
-                            } else {
-                                element.closest( '.redactor-box' ).css( 'border' , 'none' );
                             }
                             $timeout(function() {
                                 scope.$apply(function() {
