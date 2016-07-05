@@ -31,6 +31,7 @@
                             if ( tempvalue.trim() === '' ) {
                                 value = '';
                             }
+                            value = value.replace(/(\r\n|\n|\r)/gm,"");
                             $timeout(function() {
                                 scope.$apply(function() {
                                     ngModel.$setViewValue(value);
